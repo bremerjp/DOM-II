@@ -1,7 +1,7 @@
 // Your code goes here
 
 
-// - 1. Increase logo font size on hover 
+// - 1. mouseenter
 
 const logo = document.querySelector(".logo-heading");
 
@@ -15,12 +15,12 @@ logo.addEventListener("mouseleave", () => {
     logo.style.transition = "transform 0.5s";
 })
 
-// 2. Increase text size and add underline when nav items are clicked
+// 2. mousemove
 
 const navItems = document.querySelectorAll("nav a");
 
 navItems.forEach(el => {
-    el.addEventListener("click", () => {
+    el.addEventListener("mousemove", () => {
         el.style.transform = "scale(1.2)";
         el.style.transition = "transform 0.4s";
         el.style.borderBottom = "1px solid black";
@@ -35,16 +35,17 @@ navItems.forEach(el => {
     })
   })
 
-  // 3. double click event on bus image
+  // 3. dblclick
 
   const busImage = document.querySelector("header img");
   
   busImage.addEventListener("dblclick", () => {
       busImage.style.transform = "rotate(360deg)";
       busImage.style.transition = "transform 1s";
+      
   })
 
-  // 4. change color of headers on scroll
+  // 4. scroll
 
   const h2 = document.querySelectorAll("h2");
   
@@ -54,7 +55,75 @@ navItems.forEach(el => {
       })
   })
 
-  // 5. 
+  // 5. keypress
+
+  const mainImages = document.querySelectorAll(".img-content");
+
+  mainImages.forEach(el => {
+      window.addEventListener("keypress", () => {
+          el.style.transform = "scale(1.2)";
+          el.style.transition = "transform 1s";
+      })
+      window.addEventListener("keyup", () => {
+        el.style.transform = "scale(1.0)";
+        el.style.transition = "transform 0.4s";
+        
+    })
+  })
+
+// 6. resize
+
+const all = document.querySelector("*");
+
+window.addEventListener("resize", () => {
+    all.style.color = "gray";
+})
+
+// 7, 8. copy/paste
+
+const paragraphs = document.querySelectorAll("p");
+
+paragraphs.forEach(el => {
+    el.addEventListener("copy", () => {
+        el.style.fontSize = "2rem";
+    })
+    el.addEventListener("paste", () => {
+        el.style.fontSize = "";
+    })
+})
+
+// 9. click
+
+const body = document.querySelector('body');
+
+body.addEventListener("click", () => {
+    body.style.backgroundColor = "lightyellow";
+  })
+
+// 10. click, stop propagation
+
+const nav = document.querySelector(".main-navigation");
+
+nav.addEventListener("click", () => {
+    nav.style.backgroundColor = "orange";
+    event.stopPropagation();
+})
+
+
+
+// Stop the navigation items from refreshing the page by using preventDefault()
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(el => {
+    el.addEventListener("click", (e) => {
+        e.preventDefault();
+      })
+})
+
+
+
+
 
 
   
