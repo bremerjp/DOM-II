@@ -6,13 +6,25 @@
 const logo = document.querySelector(".logo-heading");
 
 logo.addEventListener("mouseenter", () => {
-    logo.style.transform = "scale(1.4)";
-    logo.style.transition = "transform 0.4s";
+    gsap.to(logo, {
+        duration: 2,
+        rotation: 360,
+        ease: "elastic(1, 0.75)"
+    })
+
+    // logo.style.transform = "scale(1.4)";
+    // logo.style.transition = "transform 0.4s";
 })
 
 logo.addEventListener("mouseleave", () => {
-    logo.style.transform = "scale(1)";
-    logo.style.transition = "transform 0.5s";
+
+    gsap.to(logo, {
+        duration: 1,
+        ease: "elastic(1, 0.75)"
+    })
+
+    // logo.style.transform = "scale(1)";
+    // logo.style.transition = "transform 0.5s";
 })
 
 // 2. mousemove
@@ -20,56 +32,64 @@ logo.addEventListener("mouseleave", () => {
 const navItems = document.querySelectorAll("nav a");
 
 navItems.forEach(el => {
+
     el.addEventListener("mousemove", () => {
-        el.style.transform = "scale(1.2)";
-        el.style.transition = "transform 0.4s";
+        gsap.to(el, {
+            duration: 2,
+            rotation: 360,
+            ease: "elastic(1, 0.75)"
+        })
         el.style.borderBottom = "1px solid black";
     })
-  })
+})
 
-  navItems.forEach(el => {
+navItems.forEach(el => {
     el.addEventListener("mouseleave", () => {
-        el.style.transform = "scale(1)";
-        el.style.transition = "transform 0.4s";
+
         el.style.borderBottom = "";
     })
-  })
+})
 
-  // 3. dblclick
+// 3. dblclick
 
-  const busImage = document.querySelector("header img");
-  
-  busImage.addEventListener("dblclick", () => {
-      busImage.style.transform = "rotate(360deg)";
-      busImage.style.transition = "transform 1s";
-      
-  })
+const busImage = document.querySelector("header img");
 
-  // 4. scroll
+busImage.addEventListener("dblclick", () => {
+    gsap.to(busImage, {
+        duration: 2,
+        rotation: 360,
+        ease: "elastic(1, 1)"
+    })
+    // busImage.style.transform = "rotate(360deg)";
+    // busImage.style.transition = "transform 1s";
 
-  const h2 = document.querySelectorAll("h2");
-  
-  h2.forEach(el => {
-      window.addEventListener("scroll", () => {
+})
+
+// 4. scroll
+
+const h2 = document.querySelectorAll("h2");
+
+h2.forEach(el => {
+    window.addEventListener("scroll", () => {
         el.style.color = "goldenrod";
-      })
-  })
+    })
+})
 
-  // 5. keypress
+// 5. keypress
 
-  const mainImages = document.querySelectorAll(".img-content");
+const mainImages = document.querySelectorAll(".img-content");
 
-  mainImages.forEach(el => {
-      window.addEventListener("keypress", () => {
-          el.style.transform = "scale(1.2)";
-          el.style.transition = "transform 1s";
-      })
-      window.addEventListener("keyup", () => {
+mainImages.forEach(el => {
+    window.addEventListener("keypress", () => {
+        el.style.transform = "scale(1.2)";
+        el.style.transition = "transform 1s";
+    })
+    window.addEventListener("keyup", () => {
         el.style.transform = "scale(1.0)";
         el.style.transition = "transform 0.4s";
-        
+
     })
-  })
+})
 
 // 6. resize
 
@@ -98,7 +118,7 @@ const body = document.querySelector('body');
 
 body.addEventListener("click", () => {
     body.style.backgroundColor = "lightyellow";
-  })
+})
 
 // 10. click, stop propagation
 
@@ -118,7 +138,7 @@ const navLinks = document.querySelectorAll(".nav-link");
 navLinks.forEach(el => {
     el.addEventListener("click", (e) => {
         e.preventDefault();
-      })
+    })
 })
 
 
@@ -126,6 +146,6 @@ navLinks.forEach(el => {
 
 
 
-  
+
 
 
