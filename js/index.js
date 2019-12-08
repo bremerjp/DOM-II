@@ -1,6 +1,4 @@
 // Your code goes here
-
-
 // - 1. mouseenter
 
 const logo = document.querySelector(".logo-heading");
